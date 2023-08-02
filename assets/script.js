@@ -26,14 +26,21 @@ for (i = 0; i < buttons.length; i++) {
   elemenBaru.addEventListener("click", ketikaTombolDitekan);
 }
 
-let display = "777";
+let display = "Display";
 let target2 = document.createElement("div");
+target2.classList.add("display");
 target2.innerHTML = display;
 target.append(target2);
-let penampungan = 0;
+let penampungan = "";
 
 function ketikaTombolDitekan() {
-  if (this.innerHTML === "=") {
+  if (penampungan === "Display"){
+        penampungan= "";
+    }
+  if (this.innerHTML === "clear"){
+    penampungan = "Display";
+    target2.innerHTML = penampungan;
+  } else if (this.innerHTML === "=") {
     let hasil = eval(penampungan);
     target2.innerHTML = hasil;
     console.log(hasil);
@@ -43,3 +50,4 @@ function ketikaTombolDitekan() {
     target2.innerHTML = penampungan;
   }
 }
+
